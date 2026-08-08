@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>$750 Target Gift Card</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  background:#e8e8ec;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:12px 12px 40px;
+}
+
+/* TOAST */
+.toast{
+  width:100%;max-width:440px;
+  background:#fff;
+  border-radius:14px;
+  padding:14px 16px;
+  display:flex;align-items:center;gap:14px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.10);
+  margin-bottom:14px;
+  border-left:5px solid #CC0000;
+  opacity:0;
+  transition:opacity 0.4s ease;
+}
+.toast.show{opacity:1;}
+.toast-icon{
+  width:38px;height:38px;min-width:38px;
+  border-radius:50%;background:#CC0000;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:18px;flex-shrink:0;
+}
+.toast-text{font-size:14px;color:#111;line-height:1.4;}
+.toast-text b{font-weight:700;}
+.toast-text span{color:#666;}
+
+/* MAIN CARD */
+.card{
+  width:100%;max-width:440px;
+  background:#fff;
+  border-radius:20px;
+  padding:30px 20px 24px;
+  box-shadow:0 2px 16px rgba(0,0,0,0.09);
+  margin-bottom:14px;
+  text-align:center;
+}
+
+/* Target bullseye SVG logo */
+.target-logo{
+  width:72px;height:72px;
+  margin:0 auto 18px;
+  display:block;
+}
+
+.card-title{
+  font-size:26px;font-weight:900;
+  color:#1a1a2e;
+  line-height:1.2;
+  margin-bottom:6px;
+  text-transform:uppercase;
+  letter-spacing:-0.3px;
+}
+.card-title-red{
+  color:#CC0000;
+  font-size:26px;font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:-0.3px;
+  margin-bottom:14px;
+  display:block;
+}
+.card-divider{border:none;border-top:1px solid #eee;margin:16px 0;}
+.card-sub{
+  font-size:14px;color:#666;
+  line-height:1.6;margin-bottom:20px;
+}
+
+/* HOW TO CLAIM */
+.how-title{
+  font-size:20px;font-weight:900;
+  color:#1a1a2e;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  margin-bottom:16px;
+}
+.steps-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:22px;
+}
+.step-box{
+  background:#f4f4f7;
+  border-radius:14px;
+  padding:18px 12px 14px;
+  text-align:center;
+}
+.step-num{
+  width:42px;height:42px;
+  border-radius:50%;background:#CC0000;
+  color:#fff;font-size:20px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 12px;
+}
+.step-name{
+  font-size:14px;font-weight:800;
+  color:#1a1a2e;line-height:1.3;
+  margin-bottom:4px;
+}
+.step-desc{font-size:12px;color:#888;}
+
+/* CTA */
+.cta-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;
+  background:#CC0000;color:#fff;
+  font-size:18px;font-weight:800;
+  text-decoration:none;
+  padding:20px 24px;
+  border-radius:50px;
+  transition:background 0.2s,transform 0.15s;
+  -webkit-tap-highlight-color:transparent;
+  position:relative;overflow:hidden;
+}
+.cta-btn::after{
+  content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.18),transparent);
+  animation:sweep 2.5s ease-in-out infinite;
+}
+@keyframes sweep{0%{left:-100%}60%,100%{left:130%}}
+.cta-btn:active{transform:scale(0.97);}
+
+/* TIP BOX */
+.tip-box{
+  width:100%;max-width:440px;
+  background:#fff3ee;
+  border-radius:14px;
+  padding:16px 18px;
+  font-size:13.5px;
+  color:#CC0000;
+  font-weight:600;
+  line-height:1.6;
+  text-align:center;
+  margin-bottom:14px;
+  box-shadow:0 1px 6px rgba(0,0,0,0.06);
+}
+.tip-box span{font-size:18px;margin-right:6px;}
+
+/* FAQ CARD */
+.faq-card{
+  width:100%;max-width:440px;
+  background:#fff;
+  border-radius:20px;
+  padding:26px 22px 20px;
+  box-shadow:0 2px 16px rgba(0,0,0,0.09);
+  margin-bottom:14px;
+}
+.faq-card-title{
+  font-size:24px;font-weight:800;
+  color:#1a1a2e;
+  margin-bottom:20px;
+  font-family:Georgia,serif;
+}
+.faq-item{border-top:1px solid #eee;padding:16px 0;}
+.faq-item:first-of-type{border-top:none;padding-top:0;}
+.faq-q{font-size:15px;font-weight:800;color:#1a1a2e;margin-bottom:8px;}
+.faq-a{font-size:14px;color:#666;line-height:1.65;}
+
+/* FOOTER */
+.footer-note{font-size:12px;color:#aaa;text-align:center;padding:0 16px;}
+
+</style>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-icon">&#10003;</div>
+  <div class="toast-text"><b id="toastName">Richard G.</b> <span id="toastMsg">just claimed a $750 Target coupon!</span></div>
+</div>
+
+<!-- MAIN CARD -->
+<div class="card">
+
+  <!-- Target Bullseye Logo -->
+  <svg class="target-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="48" fill="#CC0000"/>
+    <circle cx="50" cy="50" r="34" fill="#fff"/>
+    <circle cx="50" cy="50" r="20" fill="#CC0000"/>
+    <circle cx="50" cy="50" r="8" fill="#fff"/>
+  </svg>
+
+  <div class="card-title">$750 TARGET GIFT CARD</div>
+  <span class="card-title-red">FOR YOUR FEEDBACK!</span>
+
+  <hr class="card-divider">
+  <p class="card-sub">Target is rewarding customers with a $750 gift card for sharing their shopping experience. Limited spots available.</p>
+  <hr class="card-divider">
+
+  <div class="how-title">HOW TO CLAIM</div>
+
+  <div class="steps-grid">
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <div class="step-name">Click the Button Below</div>
+      <div class="step-desc">Start instantly</div>
+    </div>
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div class="step-name">Enter Your Basic Info</div>
+      <div class="step-desc">Name &amp; email</div>
+    </div>
+    <div class="step-box">
+      <div class="step-num">3</div>
+      <div class="step-name">Complete Required Offers</div>
+      <div class="step-desc">3–5 partner deals</div>
+    </div>
+    <div class="step-box">
+      <div class="step-num">4</div>
+      <div class="step-name">Claim up to $750</div>
+      <div class="step-desc">Target Gift Card</div>
+    </div>
+  </div>
+
+  <a class="cta-btn" href="https://linkthem.net/aff_c?offer_id=1381&aff_id=170353">
+    🎁 Claim Your Reward →
+  </a>
+
+</div>
+
+<!-- TIP BOX -->
+<div class="tip-box">
+  <span>💡</span>To qualify for your Target gift card, complete 3-5 required deals to unlock the full $750 reward. Finish each deal from start to completion.
+</div>
+
+<!-- FAQ CARD -->
+<div class="faq-card">
+  <div class="faq-card-title">Frequently Asked Questions</div>
+
+  <div class="faq-item">
+    <div class="faq-q">How long does it take?</div>
+    <div class="faq-a">Most deals take between 2–5 minutes each. Some may require a short sign-up or trial completion.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What are deals?</div>
+    <div class="faq-a">Deals are promotional offers from partner brands. They may include free trials, app installs, or product sign-ups.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How many deals do I have to do?</div>
+    <div class="faq-a">You typically need to complete between 3 and 5 deals to verify participation and unlock your reward.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">When will I receive my reward?</div>
+    <div class="faq-a">Rewards are usually processed within 24–48 hours after all required deals are successfully completed.</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-note">Limited-time promotional program.</div>
+
+<script>
+const toastNames = [
+  ["Richard G.","just claimed a $750 Target coupon!"],
+  ["Andrew S.","just claimed a $750 Target coupon!"],
+  ["Jessica M.","just received her Target gift card!"],
+  ["David K.","just completed the survey!"],
+  ["Maria T.","just claimed a $750 Target coupon!"],
+  ["Brian L.","just received his Target gift card!"],
+  ["Samantha W.","just claimed a $750 Target coupon!"],
+  ["Carlos R.","just completed the process!"],
+  ["Emily H.","just claimed a $750 Target coupon!"],
+  ["Tyler B.","just received his Target gift card!"],
+];
+
+let idx = 0;
+const toast = document.getElementById('toast');
+const toastName = document.getElementById('toastName');
+const toastMsg = document.getElementById('toastMsg');
+
+function showToast() {
+  const [name, msg] = toastNames[idx % toastNames.length];
+  idx++;
+  toastName.textContent = name;
+  toastMsg.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+    const next = 8000 + Math.random() * 10000;
+    setTimeout(showToast, next);
+  }, 4000);
+}
+setTimeout(showToast, 3000);
+</script>
+</body>
+</html>
